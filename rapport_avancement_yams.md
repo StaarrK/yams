@@ -37,7 +37,7 @@
 - Répartition des tâches :
   - [Qui a fait quoi ?]
 - Outils utilisés :
-  - (Versioning, communication, planification…)
+  - Git, GitHub, Discord
 
 ---
 
