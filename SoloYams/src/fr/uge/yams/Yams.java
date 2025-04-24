@@ -8,7 +8,6 @@ public class Yams {
 
 		System.out.println("Welcome, player, please enter your name.");
 		return scanner.nextLine();
-
 	}
 
 	private static int askReroll(Scanner scanner) {
@@ -28,6 +27,12 @@ public class Yams {
 		return switch (combinationName) {
 		case "T" -> new ThreeOfAKind();
 		case "F" -> new FullHouse();
+		case "Y" -> new Yams();
+		case "S" -> new SmallStraight();
+		case "L" -> new LargeStraight();
+		case "C" -> new Chance();
+		case "P" -> new Pair();
+		case "D" -> new DoublePair();
 		default -> throw new IllegalArgumentException("Unexpected value: " + combinationName);
 		};
 	}
@@ -39,12 +44,10 @@ public class Yams {
 		System.out.println("Hello " + name + ", and good luck !\n");
 
 		var scoreSheet = new ScoreSheet();
-		// Début du tour du joueur
 		for (var roundCounter = 0; roundCounter < 2; roundCounter++) {
 			System.out.println("Welcome in round " + (roundCounter + 1));
 			var board = new Board();
 			System.out.println(board);
-			// Relances dans le tour
 			for (var updateCounter = 0; updateCounter < 3; updateCounter++) {
 				var choice = askReroll(scanner);
 				if (choice > 0) {

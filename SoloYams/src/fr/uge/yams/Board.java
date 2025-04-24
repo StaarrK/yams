@@ -12,6 +12,19 @@ public class Board {
 		}
 	}
 
+	
+	public ArrayList<Dice> getFiveDice() {
+		return fiveDice;
+	}
+	
+	public int sumBoard() {
+		int sum = 0;
+		for (var i = 1; i <= 5; i++) {
+			sum += fiveDice.get(i - 1).value();
+		}
+		return sum;
+	}
+	
 	@Override
 	public String toString() {
 		var builder = new StringBuilder();
