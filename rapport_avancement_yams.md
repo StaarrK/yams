@@ -1,6 +1,6 @@
 # 📄 Rapport d'avancement – Projet Yams
 
-## 1. 🧭 Rappel des objectifs
+## 1. Rappel des objectifs
 
 - Objectif 1 : Yams solo jouable sur ligne de commande
 - Objectif 2 : Yams duo avec adversaire IA ou humain
@@ -8,7 +8,7 @@
 
 ---
 
-## 2. ✅ Tâches effectuées
+## 2. Tâches effectuées
 
 ### Objectif 1 – Yams solo
 - Analyse du code fourni :
@@ -32,16 +32,18 @@
 
 ---
 
-## 3. 🧩 Organisation du groupe
+## 3. Organisation du groupe
 
 - Répartition des tâches :
   - [Qui a fait quoi ?]
 - Outils utilisés :
-  - Git, GitHub, Discord
+  - Git, GitHub, Discord (Communication du travail)
+  - Eclipse (IDE)
+  - Java Platform (documentation)
 
 ---
 
-## 4. ⚠️ Difficultés rencontrées
+## 4. ⚠Difficultés rencontrées
 
 - Techniques :  
   - [Problèmes de code, bugs, logique…]
@@ -50,17 +52,16 @@
 
 ---
 
-## 5. 🔭 Pistes d’amélioration du jeu
+## 5. Pistes d’amélioration du jeu
 
 Listez ici les idées d’évolution que vous souhaiteriez intégrer dans les objectifs 3+.
 
-- Idée 1 : [description]
-- Idée 2 : [description]
-- ...
+- Idée 1 : Ajout d'une interface graphique avec, par exemple, un affichage sur une fenêtre.
+- Idée 2 : Implémentation d'un mode multijoueurs avec plus de 2 joueurs.
 
 ---
 
-## 6. 🎯 Objectifs 3+ envisagés
+## 6. Objectifs envisagés
 
 - Propositions d’objectifs à développer (techniquement réalistes dans le temps imparti) :
   - [Exemples : nouvelles combinaisons, IA plus avancée, sauvegarde des scores, etc.]
