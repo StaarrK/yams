@@ -19,6 +19,11 @@ public class ScoreSheet {
 
 		return scoreMap.values().stream().mapToInt(Integer::intValue).sum();
 	}
+	
+	public boolean alreadyUsed(Combination combination) {
+	    return scoreMap.containsKey(combination.getClass().getSimpleName());
+	}
+
 
 	@Override
 	public String toString() {
