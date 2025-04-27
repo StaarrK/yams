@@ -27,7 +27,7 @@ public class Yams {
 		return switch (combinationName) {
 		case "T" -> new ThreeOfAKind();
 		case "F" -> new FullHouse();
-		case "Y" -> new Yams();
+		case "Y" -> new YamsCombination();
 		case "S" -> new SmallStraight();
 		case "L" -> new LargeStraight();
 		case "C" -> new Chance();

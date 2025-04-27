@@ -1,31 +1,28 @@
 package fr.uge.yams;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 
 public record Pair() implements Combination {
 
-	@Override
-	public int score(Board board) {
-		return 0;
-	}
+    @Override
+    public boolean isValid(Board board) {
+        var counts = new HashMap<Integer, Integer>();
+        for (var dice : board.getFiveDice()) {
+            counts.merge(dice.value(), 1, Integer::sum);
+        }
+        return counts.values().stream().anyMatch(count -> count >= 2);
+    }
 
-	@Override
-	public String toString() {
-		return "Pair";
-	}
-	@Override
-	public boolean isValid(Board board) {
-		ArrayList<Dice> dices = board.getFiveDice();
-		
-		for (int i = 0; i < dices.size(); i++) {
-			for (int j = i + 1; j < dices.size(); j++) {
-				if (dices.get(i) == dices.get(j)) {
-					return true;
-				}
-			}
-		}
-		return false;
-		
-	}
-
+    @Override
+    public int score(Board board) {
+        var counts = new HashMap<Integer, Integer>();
+        for (var dice : board.getFiveDice()) {
+            counts.merge(dice.value(), 1, Integer::sum);
+        }
+        return counts.entrySet().stream()
+                     .filter(e -> e.getValue() >= 2)
+                     .mapToInt(e -> e.getKey() * 2)
+                     .max()
+                     .orElse(0);
+    }
 }

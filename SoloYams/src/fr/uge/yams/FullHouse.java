@@ -1,38 +1,20 @@
 package fr.uge.yams;
-import java.util.ArrayList;
 
-import fr.uge.yams.Pair;
+import java.util.HashMap;
 
 public record FullHouse() implements Combination {
 
-	@Override
-	public int score(Board board) {
-		return 25;
-	}
+    @Override
+    public boolean isValid(Board board) {
+        var counts = new HashMap<Integer, Integer>();
+        for (var dice : board.getFiveDice()) {
+            counts.merge(dice.value(), 1, Integer::sum);
+        }
+        return counts.containsValue(3) && counts.containsValue(2);
+    }
 
-	@Override
-	public String toString() {
-		return "Full House";
-	}
-	
-	private boolean isAPair(Board board, Dice dice) {
-		ArrayList<Dice> dices = board.getFiveDice();
-		
-		for (int i = 0; i < dices.size(); i++) {
-			for (int j = i + 1; j < dices.size(); j++) {
-				if (dices.get(i).value() == dices.get(j).value()) {
-					return true;
-				}
-			}
-		return false;
-		
-	
-
-	}
-	@Override
-	public boolean isValid(Board board) {
-		if ( && board.trio().isValid(board)) {
-			return true;
-		}
-	}
+    @Override
+    public int score(Board board) {
+        return isValid(board) ? 25 : 0;
+    }
 }
