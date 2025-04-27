@@ -1,16 +1,14 @@
-# 🧩 Document de Travail – Développement d’un Yams Solo
+# Document de Travail – Développement d’un Yams Solo
 
-**Noms des étudiants :**  
-**Date :**
+**Noms des étudiants :** Thomas NOEL, Rayan ESSAIDI
 
 ---
 
-## ✨ Tâche a. – Analyse du Code Existant
+## Tâche a. – Analyse du Code Existant
 
 ### 1. Démarche suivie  
-_Décrivez brièvement comment vous avez exploré le code existant : ce que vous avez testé, observé, etc._
 
-> Exemple : J’ai commencé par lire la classe `Yams`, puis j’ai repéré les interactions principales entre les objets. Ensuite, j’ai testé le jeu pour observer son comportement.
+Nous avons commencé par lire la classe `Yams`, puis nous avons repéré les interactions principales entre les objets. Ensuite, nou avons testé le jeu pour observer son comportement.
 
 ---
 
@@ -34,7 +32,7 @@ _Décrivez brièvement comment vous avez exploré le code existant : ce que vous
 
 ---
 
-## 🛠️ Tâche b. – Proposition de Solution
+## Tâche b. – Proposition de Solution
 
 ### 1. Cahier des charges simplifié
 
@@ -73,7 +71,7 @@ Yams (main)
 
 ---
 
-## 💻 Tâche c. – Programmation
+## Tâche c. – Programmation
 
 > Listez ici les classes ou méthodes que vous avez créées ou modifiées pour répondre au cahier des charges.
 
@@ -83,7 +81,7 @@ Yams (main)
 
 ---
 
-## 📦 Tâche d. – Livraison
+## Tâche d. – Livraison
 
 > Vérifiez que tout est prêt pour la livraison.
 
@@ -95,6 +93,6 @@ Yams (main)
 - [ ] … (à compléter)
 ---
 
-## ✍️ Commentaires personnels 
+## Commentaires personnels 
 
 > Vous pouvez expliquer ici ce que vous avez appris, aimé ou trouvé difficile dans l’exercice.
