@@ -25,13 +25,13 @@ public class YamsBot {
     }
 
     private static int chooseReroll(Board board) {
-        // Exemple super simple: reroll the first die that's 1 or 2
+        // kinda weird but didn't find anything better, might have to check later 
         for (int i = 0; i < 5; i++) {
             if (board.getFiveDice().get(i).value() <= 2) {
                 return i + 1;
             }
         }
-        return 0; // otherwise don't reroll
+        return 0; 
     }
 
     private static Combination chooseBestCombination(Board board, ScoreSheet scoreSheet) {
@@ -50,7 +50,7 @@ public class YamsBot {
                 return comb;
             }
         }
-        // Si tout est pris fuck it we ball
+        // If everything's taken fuck it we ball
         return new Chance();
     }
 }

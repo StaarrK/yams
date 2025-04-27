@@ -25,7 +25,7 @@ public record DoublePair() implements Combination {
         List<Integer> pairs = counts.entrySet().stream()
                                    .filter(e -> e.getValue() >= 2)
                                    .map(e -> e.getKey() * 2)
-                                   .sorted((a, b) -> Integer.compare(b, a)) // plus grand d'abord
+                                   .sorted((a, b) -> Integer.compare(b, a)) // Sort in descending order
                                    .collect(Collectors.toList());
         if (pairs.size() < 2) {
             return 0;

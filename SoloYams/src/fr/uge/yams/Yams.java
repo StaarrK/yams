@@ -66,14 +66,14 @@ public class Yams {
         System.out.println("\nHello " + name + ", and good luck!\n");
 
         var scoreSheet = new ScoreSheet();
-        final int TOTAL_ROUNDS = 13; // true Yams game
+        final int TOTAL_ROUNDS = 13;
 
         for (var roundCounter = 0; roundCounter < TOTAL_ROUNDS; roundCounter++) {
             System.out.println("\n=== Round " + (roundCounter + 1) + " ===");
             var board = new Board();
             System.out.println(board);
 
-            for (var updateCounter = 0; updateCounter < 2; updateCounter++) { // 2 rerolls max
+            for (var updateCounter = 0; updateCounter < 2; updateCounter++) { 
                 var choice = askReroll(scanner);
                 if (choice > 0) {
                     board.reroll(choice);
