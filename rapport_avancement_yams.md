@@ -1,4 +1,4 @@
-# 📄 Rapport d'avancement – Projet Yams
+# Rapport d'avancement – Projet Yams
 
 ## 1. Rappel des objectifs
 
@@ -43,7 +43,7 @@
 
 ---
 
-## 4. ⚠Difficultés rencontrées
+## 4. Difficultés rencontrées
 
 - Techniques :  
   - [Problèmes de code, bugs, logique…]
