@@ -12,30 +12,34 @@
 
 ### Objectif 1 – Yams solo
 - Analyse du code fourni :
-  - [Décrivez les manques identifiés]
+  - Les codes n'étaient pas complets, il n'y avait pas les combinaisons
 - Cahier des charges :
-  - [Fonctionnalités prévues, décisions techniques]
+  - Faire les codes des Combinaisons
+  - Les intégrer au Yams.java
 - Programmation :
-  - [Indiquez les classes ou modules développés]
+  - Développement de records pour créer le programme
 - Livrable :
-  - [État du projet : jouable ? complet ?]
+  - Complet Jouable
 
 ### Objectif 2 – Yams duo
 - Analyse :
-  - [Quels manques ont été identifiés pour passer à deux joueurs ?]
+  - Le système de tours était manquant.
 - Cahier des charges et architecture envisagée :
-  - [Structure prévue, gestion des joueurs, IA éventuelle]
+  - Ajouter un système de tours afin que le jeu puisse être joué avec 2 joueurs
+  - Implémentation d'une IA pouvant servir de deuxième joueur
 - Programmation :
-  - [Ce qui a été entamé ou terminé]
+  - Créations de nouvelles variables pour la gestion des tours
+  - Développement d'une nouvelle classe pour programmer les actions du robot (résponsivité au jeu pas encore totalement optimal)
 - Livrable :
-  - [État actuel du mode duo]
+  - Fonctionnel en IA et en Duo (le changement n'est pas implémenté) 
 
 ---
 
 ## 3. Organisation du groupe
 
 - Répartition des tâches :
-  - [Qui a fait quoi ?]
+  - Rayan ESSAIDI : Création du code pour le déroulement de la partie, support et aide (revue de code)
+  - Thomas NOËL : Créations de code pour le mode 2 joueurs, programmation de l'IA
 - Outils utilisés :
   - Git, GitHub, Discord (Communication du travail)
   - Eclipse (IDE)
@@ -46,9 +50,9 @@
 ## 4. Difficultés rencontrées
 
 - Techniques :  
-  - [Problèmes de code, bugs, logique…]
+  - Un peu de difficulté à capter la structure de base du jeu.
 - Organisationnelles :  
-  - [Communication, répartition, gestion du temps…]
+  - On a été bien organisé, le projet s'est bien déroulé
 
 ---
 
@@ -63,6 +67,7 @@ Listez ici les idées d’évolution que vous souhaiteriez intégrer dans les ob
 
 ## 6. Objectifs envisagés
 
-- Propositions d’objectifs à développer (techniquement réalistes dans le temps imparti) :
-  - [Exemples : nouvelles combinaisons, IA plus avancée, sauvegarde des scores, etc.]
+- Propositions d’objectifs à développer :
+  - IA moins triviale,
+  - Changer l'affichage qui n'est pas très agréable à la verticale
 
