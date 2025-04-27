@@ -14,85 +14,63 @@ Nous avons commencé par lire la classe `Yams`, puis nous avons repéré les int
 
 ### 2. Liste des fonctionnalités déjà implémentées
 
-> Listez ici ce qui fonctionne déjà dans le programme.
-
-- [ ] Affichage des dés  
-- [ ] Relance d’un dé  
-- [ ] … (à compléter)
+- Affichage des dés  
+- Relance d’un dé  
 
 ---
 
-### 3. Liste des manques
+### 3. Manques
 
-> Identifiez ce qui manque pour que le Yams soit complet et jouable correctement en solo.
-
-- 🔲 __________________________________________________________  
-- 🔲 __________________________________________________________  
-- 🔲 __________________________________________________________  
+Tout le système de combinaison est manquante.
 
 ---
 
 ## Tâche b. – Proposition de Solution
 
 ### 1. Cahier des charges simplifié
-
-> Listez ici les fonctionnalités que vous comptez ajouter ou améliorer.
  
-- [ ] Permettre de relancer plusieurs dés à la fois  
-- [ ] … (autres idées)
+- Permettre de relancer plusieurs dés à la fois  
+- Calcul du score en conséquence de la combinaison des dés lancés simultanément
 
 ---
 
-### 2. Choix techniques importants
+### 2. Choix techniques
 
-> Expliquez ici brièvement comment vous comptez vous y prendre techniquement (nouvelle classe, refactorisation, etc.)
-
-- __________________________________________________________  
-- __________________________________________________________  
-- __________________________________________________________  
+Nous allons créer plusieurs Records afin de gérer chaque combinaison possible, toutes implémentant l'interface Combinaison.
 
 ---
 
 ### 3. Schéma simple de l’organisation du programme
 
-> Ajoutez ici un schéma type UML ou une structure en texte brut pour montrer les classes et leurs relations.
-
-```
-Exemple :
 Yams (main)
  ├── Board
  │    └── Dice x5
  ├── ScoreSheet
  └── Combination (interface)
-       ├── FullHouse
-       ├── ThreeOfAKind
-       └── …
-```
-
+       ├── FullHouse, ThreeOfAKind, DoublePair, LargeStraight, Pair, SmallStraight
+       ├── YamsCombinaison
+       └── Chance
 ---
 
 ## Tâche c. – Programmation
 
 > Listez ici les classes ou méthodes que vous avez créées ou modifiées pour répondre au cahier des charges.
 
-- Création : _______________________________________________  
-- Modification : ____________________________________________  
-- Tests réalisés : __________________________________________  
+- Création : Chance, YamsCombinaison, Pair, DoublePair, SmallStraight, LargeStraight (Records)
+- Modification : Ajout de la méthode GetFiveDice dans la classe Board
+- Tests réalisés : Jeu lancé en manipulant des variables afin d'obtenir certaines combinaisons et ainsi toutes les tester. 
 
 ---
 
 ## Tâche d. – Livraison
 
-> Vérifiez que tout est prêt pour la livraison.
-
-- [ ] Code fonctionnel  
-- [ ] Partie ligne de commande jouable sur 13 tours  
-- [ ] Combinaisons jouables au choix (et pas deux fois !)  
-- [ ] Affichage du score total  
-- [ ] Ce document rempli  
-- [ ] … (à compléter)
+- Code fonctionnel  
+- Partie ligne de commande jouable sur 13 tours  
+- Combinaisons jouables au choix
+- Affichage du score total  
+- Ce document rempli  
 ---
 
 ## Commentaires personnels 
 
-> Vous pouvez expliquer ici ce que vous avez appris, aimé ou trouvé difficile dans l’exercice.
+Cet exercice fût intéressant notamment en ce qui concerne la création de Records implémentant une interface, cela nous a servi de rappel pour cette manière de structurer un projet.
