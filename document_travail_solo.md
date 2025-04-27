@@ -8,20 +8,20 @@ Thomas NOEL, Rayan ESSAIDI
 
 ### 1. Démarche suivie  
 
-Nous avons commencé par lire la classe `Yams`, puis nous avons repéré les interactions principales entre les objets. Ensuite, nou avons testé le jeu pour observer son comportement.
+Nous avons commencé par lire la classe `Yams`, et comment celle-ci interagit avec les objets alentours. Ensuite, nous avons testé le jeu pour observer son comportement.
 
 ---
 
 ### 2. Liste des fonctionnalités déjà implémentées
 
-- Affichage des dés  
-- Relance d’un dé  
+- Affichage des dés et du score
+- Relance d’un dé
 
 ---
 
 ### 3. Manques
 
-Tout le système de combinaison est manquante.
+Tout le système de combinaison est manquant.
 
 ---
 
