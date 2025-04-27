@@ -54,8 +54,6 @@ Yams (main)
 
 ## Tâche c. – Programmation
 
-> Listez ici les classes ou méthodes que vous avez créées ou modifiées pour répondre au cahier des charges.
-
 - Création : Chance, YamsCombinaison, Pair, DoublePair, SmallStraight, LargeStraight (Records)
 - Modification : Ajout de la méthode GetFiveDice dans la classe Board
 - Tests réalisés : Jeu lancé en manipulant des variables afin d'obtenir certaines combinaisons et ainsi toutes les tester. 
