@@ -1,6 +1,6 @@
 # Document de Travail – Développement d’un Yams Solo
 
-**Noms des étudiants :** Thomas NOEL, Rayan ESSAIDI
+Thomas NOEL, Rayan ESSAIDI
 
 ---
 
