@@ -50,6 +50,7 @@ Yams (main)
        ├── FullHouse, ThreeOfAKind, DoublePair, LargeStraight, Pair, SmallStraight
        ├── YamsCombinaison
        └── Chance
+
 ---
 
 ## Tâche c. – Programmation
