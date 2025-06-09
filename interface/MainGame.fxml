@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <VBox prefHeight="66.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox prefHeight="20.0" prefWidth="600.0">
+               <children>
+                  <Label prefHeight="18.0" prefWidth="71.0" text="Tour de :" />
+                  <Label fx:id="nom_joueur" text="Joueur1" />
+               </children>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label text="Tour n° " />
+                  <Label fx:id="num_tour" text="1" />
+               </children>
+            </HBox>
+            <Label text="Nombre de relances restantes pour ce tour :" />
+            <Label fx:id="nb_relances" text="3" />
+         </children>
+      </VBox>
+   </top>
+   <right>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label text="Joueur1" />
+                        <Label fx:id="joueur1_score" text="0" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label text="Joueur2" />
+                        <Label fx:id="joueur2_score" text="0" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </right>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label contentDisplay="CENTER" text="Voici les dés tirés pendant ce tour :" textAlignment="CENTER" />
+            <HBox prefHeight="46.0" prefWidth="500.0">
+               <children>
+                  <ImageView id="de1" fitHeight="71.0" fitWidth="88.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#onClickDe1" />
+                  <ImageView id="de2" fitHeight="71.0" fitWidth="88.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#onClickDe2" />
+                  <ImageView id="de3" fitHeight="71.0" fitWidth="88.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#onClickDe3" />
+                  <ImageView id="de4" fitHeight="71.0" fitWidth="88.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#onClickDe4" />
+                  <ImageView id="de5" fitHeight="71.0" fitWidth="88.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#onClickDe5" />
+               </children>
+            </HBox>
+            <Label text="Cliquez sur les dés que vous voulez relancer" />
+            <HBox prefHeight="51.0" prefWidth="500.0">
+               <children>
+                  <Button id="relance" mnemonicParsing="false" text="Relancer" onAction="#onRelancerDes" />
+                  <ComboBox fx:id="comboCombinaison">
+                     <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="Pair" />
+                            <String fx:value="Double Pair" />
+                            <String fx:value="Three of a Kind" />
+                            <String fx:value="Full House" />
+                            <String fx:value="Small Straight" />
+                            <String fx:value="Large Straight" />
+                            <String fx:value="Yams" />
+                            <String fx:value="Chance" />
+                        </FXCollections>
+                    </items>
+                  </ComboBox>
+                  <Button id="confirm" mnemonicParsing="false" text="Valider" onAction="#onValiderCombinaison" />
+                  <Button id="skip" mnemonicParsing="false" text="Passer le tour" onAction="#onPasserTour" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>
