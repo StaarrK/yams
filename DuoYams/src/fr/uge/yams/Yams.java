@@ -2,6 +2,8 @@ package fr.uge.yams;
 
 import java.util.Scanner;
 
+import fr.uge.yams.model.YamsBot;
+
 public class Yams {
 
     public static String initPlayer(Scanner scanner, int playerNumber) {

@@ -1,3 +1,4 @@
+// Language: Java
 package fr.uge.yams.controller;
 
 import java.util.List;
@@ -11,6 +12,7 @@ import fr.uge.yams.model.Pair;
 import fr.uge.yams.model.ScoreSheet;
 import fr.uge.yams.model.SmallStraight;
 import fr.uge.yams.model.ThreeOfAKind;
+import fr.uge.yams.model.YamsBot;
 import fr.uge.yams.model.YamsCombination;
 import fr.uge.yams.vue.CLIView;
 
@@ -23,14 +25,21 @@ public class YamsController {
     private String player2Name;
     private final int TOTAL_ROUNDS = 13;
     private boolean isSolo;
+    private boolean isBotMode;
 
     public void startGame() {
         int gameMode = view.askGameMode();
         isSolo = (gameMode == 1);
+        isBotMode = (gameMode == 3);
+
         player1Sheet = new ScoreSheet();
-        if (isSolo) {
+        if (isSolo || isBotMode) {
             player1Name = view.promptPlayerName(1);
-        } else {
+            player2Name = isBotMode ? "Bot" : "";
+            if (isBotMode) {
+                player2Sheet = new ScoreSheet();
+            }
+        } else { // Multiplayer with two human players
             player1Name = view.promptPlayerName(1);
             player2Name = view.promptPlayerName(2);
             player2Sheet = new ScoreSheet();
@@ -40,7 +49,11 @@ public class YamsController {
             view.displayMessage("\n=== ROUND " + round + " ===\n");
             playTurn(player1Name, player1Sheet);
             if (!isSolo) {
-                playTurn(player2Name, player2Sheet);
+                if (isBotMode) {
+                    YamsBot.playBotTurn(player2Name, player2Sheet);
+                } else {
+                    playTurn(player2Name, player2Sheet);
+                }
             }
         }
         displayFinalScores();
@@ -97,15 +110,28 @@ public class YamsController {
             int score1 = player1Sheet.scoreTotal();
             view.displayMessage("\n=== GAME OVER ===");
             view.displayMessage(player1Name + "'s Final Score: " + score1 + " points");
-        } else {
-            int score1 = player1Sheet.scoreTotal();
-            int score2 = player2Sheet.scoreTotal();
+        } else if (isBotMode) {
+            int s1 = player1Sheet.scoreTotal();
+            int s2 = player2Sheet.scoreTotal();
             view.displayMessage("\n=== GAME OVER ===");
-            view.displayMessage(player1Name + "'s Final Score: " + score1 + " points");
-            view.displayMessage(player2Name + "'s Final Score: " + score2 + " points");
-            if (score1 > score2) {
+            view.displayMessage(player1Name + "'s Final Score: " + s1 + " points");
+            view.displayMessage(player2Name + "'s Final Score: " + s2 + " points");
+            if (s1 > s2) {
                 view.displayMessage("\n🏆 " + player1Name + " wins! Congratulations!");
-            } else if (score2 > score1) {
+            } else if (s2 > s1) {
+                view.displayMessage("\n🏆 " + player2Name + " wins! Congratulations!");
+            } else {
+                view.displayMessage("\n🤝 It's a tie!");
+            }
+        } else {
+            int s1 = player1Sheet.scoreTotal();
+            int s2 = player2Sheet.scoreTotal();
+            view.displayMessage("\n=== GAME OVER ===");
+            view.displayMessage(player1Name + "'s Final Score: " + s1 + " points");
+            view.displayMessage(player2Name + "'s Final Score: " + s2 + " points");
+            if (s1 > s2) {
+                view.displayMessage("\n🏆 " + player1Name + " wins! Congratulations!");
+            } else if (s2 > s1) {
                 view.displayMessage("\n🏆 " + player2Name + " wins! Congratulations!");
             } else {
                 view.displayMessage("\n🤝 It's a tie!");
