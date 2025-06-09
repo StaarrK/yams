@@ -1,5 +1,6 @@
 package fr.uge.yams.controller;
 
+import java.util.List;
 import fr.uge.yams.model.Board;
 import fr.uge.yams.model.Chance;
 import fr.uge.yams.model.Combination;
@@ -16,20 +17,31 @@ import fr.uge.yams.vue.CLIView;
 public class YamsController {
 
     private final CLIView view = new CLIView();
-    private final ScoreSheet player1Sheet = new ScoreSheet();
-    private final ScoreSheet player2Sheet = new ScoreSheet();
+    private ScoreSheet player1Sheet;
+    private ScoreSheet player2Sheet;
     private String player1Name;
     private String player2Name;
     private final int TOTAL_ROUNDS = 13;
+    private boolean isSolo;
 
     public void startGame() {
-        player1Name = view.promptPlayerName(1);
-        player2Name = view.promptPlayerName(2);
+        int gameMode = view.askGameMode();
+        isSolo = (gameMode == 1);
+        player1Sheet = new ScoreSheet();
+        if (isSolo) {
+            player1Name = view.promptPlayerName(1);
+        } else {
+            player1Name = view.promptPlayerName(1);
+            player2Name = view.promptPlayerName(2);
+            player2Sheet = new ScoreSheet();
+        }
 
         for (var round = 1; round <= TOTAL_ROUNDS; round++) {
             view.displayMessage("\n=== ROUND " + round + " ===\n");
             playTurn(player1Name, player1Sheet);
-            playTurn(player2Name, player2Sheet);
+            if (!isSolo) {
+                playTurn(player2Name, player2Sheet);
+            }
         }
         displayFinalScores();
     }
@@ -39,21 +51,30 @@ public class YamsController {
         Board board = new Board();
         view.displayBoard(board);
 
-        // Allow up to 2 rerolls
+        // Allow up to 2 reroll rounds.
         for (int i = 0; i < 2; i++) {
-            int choice = view.askReroll();
-            if (choice > 0) {
-                board.reroll(choice);
-                view.displayBoard(board);
-            } else {
+            List<Integer> rerolls = view.askRerollDice();
+            if (rerolls.isEmpty()) {
                 break;
             }
+            for (Integer pos : rerolls) {
+                board.reroll(pos);
+            }
+            view.displayBoard(board);
         }
 
-        String combChoice = view.askCombination(sheet);
-        Combination combination = parseCombination(combChoice);
-        sheet.updateScore(combination, board);
-        view.displayMessage("\n" + playerName + "\'s Score Sheet:");
+        // Loop until a valid combination is chosen.
+        while (true) {
+            String combChoice = view.askCombination(sheet);
+            Combination combination = parseCombination(combChoice);
+            try {
+                sheet.updateScore(combination, board);
+                break;
+            } catch (IllegalArgumentException e) {
+                view.displayMessage("This combination has already been used. Please choose another one.");
+            }
+        }
+        view.displayMessage("\n" + playerName + "'s Score Sheet:");
         view.displayMessage(sheet.toString());
     }
 
@@ -72,18 +93,23 @@ public class YamsController {
     }
 
     private void displayFinalScores() {
-        int score1 = player1Sheet.scoreTotal();
-        int score2 = player2Sheet.scoreTotal();
-        view.displayMessage("\n=== GAME OVER ===");
-        view.displayMessage(player1Name + "\'s Final Score: " + score1 + " points");
-        view.displayMessage(player2Name + "\'s Final Score: " + score2 + " points");
-
-        if (score1 > score2) {
-            view.displayMessage("\n🏆 " + player1Name + " wins! Congratulations!");
-        } else if (score2 > score1) {
-            view.displayMessage("\n🏆 " + player2Name + " wins! Congratulations!");
+        if (isSolo) {
+            int score1 = player1Sheet.scoreTotal();
+            view.displayMessage("\n=== GAME OVER ===");
+            view.displayMessage(player1Name + "'s Final Score: " + score1 + " points");
         } else {
-            view.displayMessage("\n🤝 It's a tie!");
+            int score1 = player1Sheet.scoreTotal();
+            int score2 = player2Sheet.scoreTotal();
+            view.displayMessage("\n=== GAME OVER ===");
+            view.displayMessage(player1Name + "'s Final Score: " + score1 + " points");
+            view.displayMessage(player2Name + "'s Final Score: " + score2 + " points");
+            if (score1 > score2) {
+                view.displayMessage("\n🏆 " + player1Name + " wins! Congratulations!");
+            } else if (score2 > score1) {
+                view.displayMessage("\n🏆 " + player2Name + " wins! Congratulations!");
+            } else {
+                view.displayMessage("\n🤝 It's a tie!");
+            }
         }
     }
 
