@@ -1,4 +1,4 @@
-package fr.uge.yams;
+package fr.uge.yams.model;
 
 public record Chance() implements Combination {
 	

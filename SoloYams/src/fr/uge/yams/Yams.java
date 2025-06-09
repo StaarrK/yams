@@ -2,6 +2,18 @@ package fr.uge.yams;
 
 import java.util.Scanner;
 
+import fr.uge.yams.model.Board;
+import fr.uge.yams.model.Chance;
+import fr.uge.yams.model.Combination;
+import fr.uge.yams.model.DoublePair;
+import fr.uge.yams.model.FullHouse;
+import fr.uge.yams.model.LargeStraight;
+import fr.uge.yams.model.Pair;
+import fr.uge.yams.model.ScoreSheet;
+import fr.uge.yams.model.SmallStraight;
+import fr.uge.yams.model.ThreeOfAKind;
+import fr.uge.yams.model.YamsCombination;
+
 public class Yams {
 
 	public static String init(Scanner scanner) {
