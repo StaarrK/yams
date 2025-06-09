@@ -12,17 +12,20 @@ public class CLIView {
 
     public int askGameMode() {
         while (true) {
-            System.out.println("Select game mode: 1 \\- Solo, 2 \\- Multiplayer");
+            System.out.println("Select game mode:");
+            System.out.println("1 \\- Solo");
+            System.out.println("2 \\- Multiplayer");
+            System.out.println("3 \\- Play against Bot");
             String input = scanner.nextLine();
             try {
                 int mode = Integer.parseInt(input);
-                if (mode == 1 || mode == 2) {
+                if (mode >= 1 && mode <= 3) {
                     return mode;
                 }
             } catch (NumberFormatException e) {
-                // continue asking
+                // continue
             }
-            System.out.println("Invalid input. Please enter 1 or 2.");
+            System.out.println("Invalid input. Please enter 1, 2, or 3.");
         }
     }
 
@@ -60,8 +63,7 @@ public class CLIView {
 
     public String askCombination(ScoreSheet sheet) {
         System.out.println("Choose a combination to score (T/F/Y/S/L/C/P/D):");
-        String choice = scanner.nextLine().toUpperCase();
-        return choice;
+        return scanner.nextLine().toUpperCase();
     }
 
     public void displayMessage(String message) {
